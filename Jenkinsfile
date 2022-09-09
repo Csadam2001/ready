@@ -19,14 +19,10 @@ pipeline {
                 bat './gradlew docker'
             }
         }
-        stage('Push Docker image') {
-            environment {
-                DOCKER_HUB_LOGIN = credentials('docker-hub')
-            }
-            steps {
-                bat 'docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW'
-                bat './gradlew dockerPush'
+        stage('Run docker image'){
+            steps{
+                bat ''
             }
         }
     }
-}
+ }
