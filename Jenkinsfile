@@ -28,5 +28,4 @@ pipeline {
                 bet './gradlew dockerPush'
             }
         }
-    }
-}
+    
