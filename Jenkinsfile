@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build docker') {
             steps {
-                bat './gradlew bootRun'
+                bat './gradlew bootRun --args='--server.port=8081''
             }
         }
        /* stage('Run docker') {
