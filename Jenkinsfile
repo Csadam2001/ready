@@ -6,17 +6,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bet './gradlew assemble'
+                bat './gradlew assemble'
             }
         }
         stage('Test') {
             steps {
-                bet './gradlew test'
+                bat './gradlew test'
             }
         }
         stage('Build Docker image') {
             steps {
-                bet './gradlew docker'
+                bat './gradlew docker'
             }
         }
     }
