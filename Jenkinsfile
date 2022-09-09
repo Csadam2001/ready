@@ -6,17 +6,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat './gradlew assemble'
+                bat './gradlew bootRun'
             }
         }
-        stage('Test') {
+        stage('Build docker') {
             steps {
-                bat './gradlew test'
+                bat 'docker build --build-arg JAR_FILE=build/libs/*.jar -t myorg/myapp .'
             }
         }
-        stage('Build Docker image') {
+        stage('Run docker') {
             steps {
-                bat './gradlew docker'
+                bat 'docker run -p 8081:8081 myorg/myapp'
             }
         }
     }
