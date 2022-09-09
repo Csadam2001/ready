@@ -4,15 +4,20 @@ pipeline {
         pollSCM '* * * * *'
     }
     stages {
-        stage('Build docker') {
+        stage('Build gradle') {
             steps {
-                bat './gradlew bootRun --args=--server.port=8081'
+                bat './gradlew build'
             }
         }
-       /* stage('Run docker') {
+        stage('Build docker') {
             steps {
-                bat 'docker run -p 8081:8081 myorg/myapp'
+                bat 'docker build --build-arg JAR_FILE=build/libs/*.jar -t myorg/myapp .'
             }
-        }*/
+        }
+        stage('Run docker') {
+            steps {
+                bat 'docker run -p 9090:8080 myorg/myapp'
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,8 +13,10 @@ import org.springframework.context.annotation.Bean;
 public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-		System.out.println("==================STARTED===================");
+		SpringApplication app = new SpringApplication(Application.class);
+		app.setDefaultProperties(Collections
+          .singletonMap("server.port", "8081"));
+		app.run(args);
 	}
 
 	@Bean
