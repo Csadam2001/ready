@@ -4,11 +4,6 @@ pipeline {
         pollSCM '* * * * *'
     }
     stages {
-        stage('Build') {
-            steps {
-                bat './gradlew bootRun'
-            }
-        }
         stage('Build docker') {
             steps {
                 bat 'docker build --build-arg JAR_FILE=build/libs/*.jar -t myorg/myapp .'

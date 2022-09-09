@@ -5,7 +5,7 @@ RUN gradle build --no-daemon
 
 FROM openjdk:17.0.1-jdk-slim
 
-EXPOSE 8080
+EXPOSE 8081
 
 RUN mkdir /app
 
