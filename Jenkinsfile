@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Run docker') {
             steps {
-                bat 'docker run -p 8081:8081 appp'
+                bat 'docker run -p 8081:8081 app'
             }
         }
     }
