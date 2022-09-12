@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build gradle') {
             steps {
-                bat './gradlew bootRun'
+                bat './gradlew build'
             }
         }
         stage('Build docker') {
